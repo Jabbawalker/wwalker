@@ -408,12 +408,14 @@ class FSM:
         Giant = 5
 
     def cancel_inactivity_timer(self):
+        return
         if self.inactivity_timer_task:
             self.inactivity_timer_task.cancel()
             self.inactivity_timer_task = None
             log('⏳inactivity timer is cancelled')
 
     def reset_inactivity_timer(self,event):
+        return
         self.cancel_inactivity_timer()
 
         def inactivity_timer_done_callback(f):
@@ -428,6 +430,7 @@ class FSM:
         self.inactivity_timer_task.add_done_callback(inactivity_timer_done_callback)
 
     async def inactivity_timer_handler(self,event):
+        return
         try:
             delay = random.randint(int(INACTIVITY_POLL_TIMEOUT*0.9),int(INACTIVITY_POLL_TIMEOUT*1.1))
             log('⏳%s inactivity timer delay: %s' % (event.message.id,delay))
@@ -440,6 +443,7 @@ class FSM:
             return
 
     async def on_inactivity_timer(self,event):
+        return
         log('⏳inactivity timer is fired')
         if not self.enabled:
             log('⏳ignore timer because of disabled events processing')
