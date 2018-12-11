@@ -281,6 +281,7 @@ class Profile():
         self.autojump31 = cfg.getboolean('autojump31') if 'autojump31' in cfg else False
         self.autospeeds = cfg.getboolean('autospeeds') if 'autospeeds' in cfg else False
         self.autoshoot = cfg.getboolean('autoshoot') if 'autoshoot' in cfg else False
+        self.autosteam = cfg.getboolean('autosteam') if 'autosteam' in cfg else False
         self.threshold_action = self.ThresholdAction[cfg.get('threshold_action')] if 'threshold_action' in cfg else self.ThresholdAction.gohome
         self.food_blacklist = cfg.get('food_blacklist').split(',') if 'food_blacklist' in cfg else []
 
@@ -346,6 +347,7 @@ class Profile():
         cfg['autojump31'] = str(self.autojump31)
         cfg['autospeeds'] = str(self.autospeeds)
         cfg['autoshoot'] = str(self.autoshoot)
+        cfg['autosteam'] = str(self.autosteam)
         cfg['threshold_action'] = self.threshold_action.name
 
         if self.food_blacklist:
@@ -767,7 +769,7 @@ class FSM:
         elif self.state==self.State.Campus:
             if self.sub_state==0:
                 log('{} campus. hp state: {}/{}'.format(event.message.id,self.parser.hp,self.parser.max_hp))
-                if self.parser.hp and self.parser.max_hp and int(self.parser.hp) <  int(self.parser.max_hp):
+                if self.parser.hp and self.parser.max_hp and int(self.parser.hp) <  int(self.parser.max_hp) and self.p().autosteam:
                     self.sub_state = 1
                     await self.delayed_reply(event,'💉++ Суперстим')
                 else:
@@ -868,6 +870,7 @@ switchers:
 l - loop / autoloop (%s)
 m - maniac / autoshoot (%s)
 speed - speeds usage in campus (%s)
+steam - 💉++ Суперстим usage in campus (%s)
 j[12,22,31] - switch autojump[12,22,31] (%s,%s,%s)
 
 darkzone control:
@@ -906,6 +909,7 @@ fc - clear food blacklist
        self.p().autoloop,
        self.p().autoshoot,
        self.p().autospeeds,
+       self.p().autosteam,
        self.p().autojump12, self.p().autojump22, self.p().autojump31)
 
     def on_status(self, event, text):
@@ -924,6 +928,7 @@ action: %s
 autoloop: %s
 autoshoot: %s
 autospeeds: %s
+autosteam: %s
 autojump12,22,31: %s %s %s
 ''' % (self.enabled,
        not self.skip_buttons,
@@ -936,6 +941,7 @@ autojump12,22,31: %s %s %s
        self.p().autoloop,
        self.p().autoshoot,
        self.p().autospeeds,
+       self.p().autosteam,
        self.p().autojump12, self.p().autojump22, self.p().autojump31)
 
     def on_events_processing(self, event, text):
@@ -1021,6 +1027,13 @@ autojump12,22,31: %s %s %s
             return 'autoshoot enabled'
         else:
             return 'autoshoot disabled'
+
+    def on_autosteam(self, event, text):
+        self.p().autosteam = not self.p().autosteam
+        if self.p().autosteam:
+            return 'autosteam enabled'
+        else:
+            return 'autosteam disabled'
 
     def on_autodarkzone(self, event, text):
         cmd = text[1:]
@@ -1313,6 +1326,7 @@ autojump12,22,31: %s %s %s
         CtrlCmd('update',on_update),
         CtrlCmd('restart',on_restart),
         CtrlCmd('speed',on_faster),
+        CtrlCmd('steam',on_autosteam),
         CtrlCmd('l',on_autoloop),
         CtrlCmd('m',on_autoshoot),
         CtrlCmd('r',on_ctl_reset),
