@@ -16,6 +16,17 @@ Now find and Install downloaded file:
 ![Check this box](https://github.com/wwfix/wwalker/blob/master/PythonChecked.png)
 
 Finish Installation.
+
+Now press *Win+R* key on your keyboard, and type in opened windows *cmd*, then press *Enter* to call Command line
+
+![Exec](https://github.com/Jabbawalker/wwalker/blob/master/exec.png)
+
+In command line type the command:
+* 'python -m pip install --upgrade pip'
+
+![Upgrade pip3](https://github.com/Jabbawalker/wwalker/blob/master/PipUpgrade.png)
+
+Then go to the next step.
     
 ### prerequisites
 * `pip3 install telethon`
