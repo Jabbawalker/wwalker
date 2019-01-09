@@ -8,7 +8,9 @@ Now find and Install downloaded file:
 * Choose Typical Installation
 
 ![Choose Typical](https://github.com/wwfix/wwalker/blob/master/PythonTypical.png)
+
 * These points must be checked
+
 ![Check this box](https://github.com/wwfix/wwalker/blob/master/PythonChecked.png)
     
 ### prerequisites
