@@ -1,7 +1,7 @@
 # wwalker
 
 ## setup Python Win
-Download Python3 (last version) for Windows(32\64), from link:
+Download Python3 (last version) for Windows(32\64), from link:\n
 https://www.activestate.com/products/activepython/downloads/
 Now find and Install downloaded file:
 * ![Choose Typical](https://github.com/wwfix/wwalker/blob/master/PythonTypical.png)
