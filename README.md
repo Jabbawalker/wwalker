@@ -5,7 +5,8 @@
 Download **Python3** (last version) for Windows(32\64), from **link**:   
     `https://www.activestate.com/products/activepython/downloads/`    
 Now find and Install downloaded file:
-* Choose Typical Installation
+* Choose Typical Installation*
+
 ![Choose Typical](https://github.com/wwfix/wwalker/blob/master/PythonTypical.png)
 * These points must be checked
 ![Check this box](https://github.com/wwfix/wwalker/blob/master/PythonChecked.png)
