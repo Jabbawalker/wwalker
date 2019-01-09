@@ -14,6 +14,8 @@ Now find and Install downloaded file:
 * These points must be checked
 
 ![Check this box](https://github.com/wwfix/wwalker/blob/master/PythonChecked.png)
+
+Finish Installation.
     
 ### prerequisites
 * `pip3 install telethon`
