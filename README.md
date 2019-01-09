@@ -2,11 +2,8 @@
 
 ## setup Python Win
 
-
-I think you should use an
-`<addr>` element here instead.
-Download Python3 (last version) for Windows(32\64), from link:
-* https://www.activestate.com/products/activepython/downloads/
+Download Python3 (last version) for Windows(32\64), from link:   
+    https://www.activestate.com/products/activepython/downloads/
 Now find and Install downloaded file:
 * ![Choose Typical](https://github.com/wwfix/wwalker/blob/master/PythonTypical.png)
   Choose Typical Installation
