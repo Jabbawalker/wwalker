@@ -11,7 +11,7 @@ Now find and Install downloaded file:
 
 ![Choose Typical](https://github.com/wwfix/wwalker/blob/master/PythonTypical.png)
 
-* These points must be checked
+* These boxes must be checked
 
 ![Check this box](https://github.com/wwfix/wwalker/blob/master/PythonChecked.png)
 
