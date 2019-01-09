@@ -17,12 +17,12 @@ Now find and Install downloaded file:
 
 Finish Installation.
 
-Now press *Win+R* key on your keyboard, and type in opened windows *cmd*, then press *Enter* to call Command line
+Now press *<Win+R>* key on your keyboard, and type in opened windows *`cmd.exe`*, then press *<Enter>* to call Command line
 
 ![Exec](https://github.com/Jabbawalker/wwalker/blob/master/exec.png)
 
 In command line type the command:
-* 'python -m pip install --upgrade pip'
+* `python -m pip install --upgrade pip`
 
 ![Upgrade pip3](https://github.com/Jabbawalker/wwalker/blob/master/PipUpgrade.png)
 
